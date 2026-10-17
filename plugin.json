@@ -1,0 +1,24 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "matt-skills-for-chatgpt",
+  "version": "0.1.0",
+  "description": "Unofficial ChatGPT adaptation of Matt Pocock's official engineering and productivity Skills.",
+  "author": {
+    "name": "lirtual"
+  },
+  "repository": "https://github.com/lirtual/matt-skills-for-chatgpt",
+  "license": "MIT",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Matt Skills for ChatGPT",
+        "shortDescription": "Unofficial coding workflows",
+        "longDescription": "Independent ChatGPT adaptation of 27 official Matt Pocock Skills. Supports planning, specifications, engineering and review through available authorized tools.",
+        "developerName": "lirtual",
+        "category": "Productivity",
+        "capabilities": [],
+        "defaultPrompt": "Help me select the right workflow from Matt Skills for ChatGPT."
+      }
+    }
+  }
+}

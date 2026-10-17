@@ -6,7 +6,7 @@
 - Source license: MIT; copied in [LICENSE](LICENSE).
 - Publication: **unofficial ChatGPT adaptation**, not endorsed by Matt Pocock.
 - Initial target: 27 official skills (20 Engineering, 7 Productivity), corresponding invocation metadata and required adjacent assets.
-- Status: **design only**; no adapted plugin package exists yet.
+- Status: **candidate package prepared; not yet installed or released as a ChatGPT plugin**.
 
 ## Update process (manual)
 
@@ -21,3 +21,7 @@
 ## Attribution
 
 Copyright (c) 2026 Matt Pocock, licensed under MIT. Preserve any upstream third-party credit documents such as `pr/CREDITS.md` in corresponding Skill directories when packaging.
+
+## Initial candidate adaptations
+
+At version `0.1.0`, all 27 upstream Skill directories and their companion files are copied byte-for-byte. The only adaptation is the portable root `plugin.json` and the standalone repo/package layout. Some execution features are conditional on the current authorized ChatGPT tool environment and will be validated in later Issues.
