@@ -24,4 +24,18 @@ Copyright (c) 2026 Matt Pocock, licensed under MIT. Preserve any upstream third-
 
 ## Initial candidate adaptations
 
-At version `0.1.0`, all 27 upstream Skill directories and their companion files are copied byte-for-byte. The only adaptation is the portable root `plugin.json` and the standalone repo/package layout. Some execution features are conditional on the current authorized ChatGPT tool environment and will be validated in later Issues.
+At version `0.1.0`, all 27 Skill directories were originally imported from the pinned upstream commit. Nine `SKILL.md` files now carry the explicitly listed ChatGPT execution notes below; the other 18 Skill instructions, all 27 agent policies, and all 25 support files remain byte-for-byte identical to upstream. The portable root `plugin.json` is specific to this project. Actual runtime behavior remains conditional on available authorized tools and is pending installed-plugin acceptance.
+
+## ChatGPT execution notes in source Skills (pre-install review)
+
+Only the following upstream Skill instructions are modified. Each addition explicitly handles missing ChatGPT skill-loading, independent-agent, or credential-execution capabilities without asserting equivalent execution:
+
+- `skills/grill-me/SKILL.md`
+- `skills/grill-with-docs/SKILL.md`
+- `skills/implement/SKILL.md`
+- `skills/triage/SKILL.md`
+- `skills/wayfinder/SKILL.md`
+- `skills/code-review/SKILL.md`
+- `skills/implement-spec/SKILL.md`
+- `skills/research/SKILL.md`
+- `skills/wizard/SKILL.md`

@@ -4,6 +4,10 @@ description: "Implement the result of /to-spec and /to-tickets in code."
 disable-model-invocation: true
 ---
 
+## ChatGPT execution note
+
+Before modifying branches or claiming progress, verify that isolated worktrees and independent implementer/merger subagents are actually available. If any essential capability is absent, identify the blocking prerequisite and do not claim the multiagent execution completed. Do not silently simulate parallel work.
+
 You have been provided a spec. This spec should have tickets associated with it, describing how to implement the spec.
 
 The issue tracker should have been provided to you. If not, tell the user to run `/setup-matt-pocock-skills`.
