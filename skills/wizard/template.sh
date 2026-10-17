@@ -135,12 +135,17 @@ ask_secret() {
 }
 
 # write_env KEY VALUE upserts KEY='VALUE' into ENV_FILE (replaces any existing
-# line) and sets $KEY. Idempotent. Creates ENV_FILE at mode 0600; writes through
-# a symlink and keeps an existing file's mode.
+# line) and sets $KEY. Idempotent. Creates ENV_FILE at mode 0600, rejects
+# symlink and non-file targets, and restricts existing files to owner-only.
 write_env() {
   local key="$1" value="$2" tmp sq="'\\''"
+  if [[ -L "$ENV_FILE" || ( -e "$ENV_FILE" && ! -f "$ENV_FILE" ) ]]; then
+    warn "refusing unsafe .env destination: $ENV_FILE"
+    return 1
+  fi
   [[ -e "$ENV_FILE" ]] || (umask 077 && : > "$ENV_FILE")
-  tmp=$(mktemp)
+  chmod go-rwx -- "$ENV_FILE"
+  tmp=$(umask 077 && mktemp)
   grep -vE "^${key}=" "$ENV_FILE" > "$tmp" || true
   printf "%s='%s'\n" "$key" "${value//\'/$sq}" >> "$tmp"
   cat "$tmp" > "$ENV_FILE"

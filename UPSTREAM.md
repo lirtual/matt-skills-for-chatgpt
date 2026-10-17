@@ -24,11 +24,11 @@ Copyright (c) 2026 Matt Pocock, licensed under MIT. Preserve any upstream third-
 
 ## Initial candidate adaptations
 
-At version `0.1.0`, all 27 Skill directories were originally imported from the pinned upstream commit. Nine `SKILL.md` files now carry the explicitly listed ChatGPT execution notes below; the other 18 Skill instructions, all 27 agent policies, and all 25 support files remain byte-for-byte identical to upstream. The portable root `plugin.json` is specific to this project. Actual runtime behavior remains conditional on available authorized tools and is pending installed-plugin acceptance.
+At version `0.1.0`, all 27 Skill directories were originally imported from the pinned upstream commit. Nine `SKILL.md` files now carry the explicitly listed ChatGPT execution notes below; the other 18 Skill instructions, all 27 agent policies, and 24 of 25 support files remain byte-for-byte identical to upstream. The portable root `plugin.json` is specific to this project. Actual runtime behavior remains conditional on available authorized tools and is pending installed-plugin acceptance.
 
 ## ChatGPT execution notes in source Skills (pre-install review)
 
-Only the following upstream Skill instructions are modified. Each addition explicitly handles missing ChatGPT skill-loading, independent-agent, or credential-execution capabilities without asserting equivalent execution:
+Only the following upstream Skill instructions and template are modified. Each addition explicitly handles missing ChatGPT skill-loading, independent-agent, or credential-execution capabilities without asserting equivalent execution:
 
 - `skills/grill-me/SKILL.md`
 - `skills/grill-with-docs/SKILL.md`
@@ -39,3 +39,6 @@ Only the following upstream Skill instructions are modified. Each addition expli
 - `skills/implement-spec/SKILL.md`
 - `skills/research/SKILL.md`
 - `skills/wizard/SKILL.md`
+- `skills/wizard/template.sh`
+
+The `wizard/template.sh` helper additionally rejects final-path symlinks and ensures that existing `.env` files are owner-only before writing synthetic or actual values. This is a defense-in-depth change and does not replace normal filesystem access controls or interactive consent.
