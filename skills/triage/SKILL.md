@@ -4,6 +4,10 @@ description: Move issues and external PRs through a state machine of triage role
 disable-model-invocation: true
 ---
 
+## ChatGPT execution note
+
+For an instruction to call another Skill, use an available skill-reading tool to discover and load the named sibling Skill. Do not assume the Claude Skill tool exists. If that skill-reading capability or named dependency is unavailable, state that it is unavailable and do not claim to have invoked it. Respect user-only invocation policies.
+
 # Triage
 
 Move issues on the project issue tracker through a small state machine of triage roles.

@@ -3,6 +3,10 @@ name: research
 description: Investigate a question against high-trust primary sources and capture the findings as a Markdown file in the repo. Use when the user wants a topic researched, docs or API facts gathered, or reading legwork delegated to a background agent.
 ---
 
+## ChatGPT execution note
+
+If a real background agent is unavailable, synchronous research may be presented as a clearly labelled alternative when the requested findings can be delivered in-session. Do not claim that background execution occurred. Save cited results to a repository only with actual write authorization.
+
 Spin up a **background agent** to do the research, so you keep working while it reads.
 
 Its job:
