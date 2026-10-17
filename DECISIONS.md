@@ -1,6 +1,6 @@
 # Matt Skills for ChatGPT — 已确认决策
 
-- 状态：Grilling with Docs 设计共识已闭合；本轮仅批准 GitHub 文档整理及 to-spec，**尚未批准创建或卸载插件**。
+- 状态：Grilling with Docs 设计共识已闭合；现阶段已批准 GitHub 文档整理、to-spec、to-tickets 及经审查的文档 PR 合并，**尚未批准创建或卸载插件**。
 - 日期：2026-10-18
 - 上游仓库：<https://github.com/mattpocock/skills>
 - 固定上游 Commit：`49dd158d1076134a641b33efb035946536778336`，上游插件版本 `1.3.1`
@@ -63,6 +63,6 @@
 ## 项目及授权边界
 
 - 本项目唯一 GitHub 仓库：<https://github.com/lirtual/matt-skills-for-chatgpt>，使用 `main` 与短期 PR 分支。
-- 当前授权仅限：将设计文档整理提交、运行 `to-spec` 并发布规格 Issue。
+- 当前授权限于：设计文档提交及 PR 审查合并、`to-spec` 规格发布、`to-tickets` 规划 Issue 发布。
 - **未获得创建、安装、发布新版插件或卸载 Curated 的授权**。
 - 不追加自建 MCP、Workers、数据库、后台调度、自动升级或长期双插件支持。
