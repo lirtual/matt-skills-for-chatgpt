@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "matt-skills-for-chatgpt",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Unofficial ChatGPT adaptation of Matt Pocock's official engineering and productivity Skills.",
   "author": {
     "name": "lirtual"
@@ -17,7 +17,9 @@
         "developerName": "lirtual",
         "category": "Productivity",
         "capabilities": [],
-        "defaultPrompt": "Help me select the right workflow from Matt Skills for ChatGPT."
+        "defaultPrompt": "Help me select the right workflow from Matt Skills for ChatGPT.",
+        "logo": "./assets/ai-hero-official-mark.svg",
+        "composerIcon": "./assets/ai-hero-official-mark.svg"
       }
     }
   }
