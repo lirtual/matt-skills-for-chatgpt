@@ -42,3 +42,11 @@ Only the following upstream Skill instructions and template are modified. Each a
 - `skills/wizard/template.sh`
 
 The `wizard/template.sh` helper additionally rejects final-path symlinks and ensures that existing `.env` files are owner-only before writing synthetic or actual values. This is a defense-in-depth change and does not replace normal filesystem access controls or interactive consent.
+
+
+## Brand icon attribution (ChatGPT adaptation v0.1.1)
+
+- Asset: \`assets/ai-hero-official-mark.svg\` (official **AI Hero** favicon/logomark).
+- Original source: <https://github.com/badass-courses/ai-hero/blob/main/apps/ai-hero/public/favicon.svg>.
+- Source blob: \`f557fb50fcd42de9414ddfa234aa85bc5d0ca9d2\`.
+- Included unchanged for the user's private, **unofficial** ChatGPT adaptation. This is the AI Hero brand mark, not an officially published icon for the upstream \`mattpocock/skills\` plugin. No endorsement, affiliation or trademark license is implied.
