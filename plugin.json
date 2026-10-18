@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "matt-skills-for-chatgpt",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Unofficial ChatGPT adaptation of Matt Pocock's official engineering and productivity Skills.",
   "author": {
     "name": "lirtual"
@@ -11,7 +11,7 @@
   "extensions": {
     "com.openai": {
       "interface": {
-        "displayName": "Matt Skills for ChatGPT",
+        "displayName": "Matt Pocock",
         "shortDescription": "Unofficial coding workflows",
         "longDescription": "Independent ChatGPT adaptation of 27 official Matt Pocock Skills. Supports planning, specifications, engineering and review through available authorized tools.",
         "developerName": "lirtual",
