@@ -7,12 +7,11 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-UPSTREAM = ROOT.parent / "upstream"
 
 class DistributionTests(unittest.TestCase):
-    def test_package_matches_pinned_upstream(self):
+    def test_package_validation_without_required_upstream_checkout(self):
         p = subprocess.run(
-            [sys.executable, "scripts/validate_package.py", "--upstream", str(UPSTREAM)],
+            [sys.executable, "scripts/validate_package.py"],
             cwd=ROOT, capture_output=True, text=True,
         )
         self.assertEqual(p.returncode, 0, p.stdout + p.stderr)
@@ -38,7 +37,11 @@ class DistributionTests(unittest.TestCase):
                 self.assertFalse(any("__pycache__" in p or p.startswith("../") for p in files))
                 manifest = json.loads(z.read("plugin.json"))
                 self.assertEqual(manifest["name"], "matt-skills-for-chatgpt")
-                self.assertEqual(manifest["version"], "0.1.0")
+                source = json.loads((ROOT / "plugin.json").read_text(encoding="utf-8"))
+                self.assertEqual(manifest["version"], source["version"])
+                ui = manifest["extensions"]["com.openai"]["interface"]
+                for key in ("logo", "composerIcon"):
+                    self.assertIn(ui[key].removeprefix("./"), files)
 
 if __name__ == "__main__":
     unittest.main()

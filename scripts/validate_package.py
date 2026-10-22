@@ -26,13 +26,19 @@ def inspect(upstream=None):
     manifest = json.loads((ROOT / "plugin.json").read_text(encoding="utf-8"))
     ensure(manifest.get("$schema") == SCHEMA, "wrong plugin schema")
     ensure(manifest.get("name") == "matt-skills-for-chatgpt", "wrong package name")
-    ensure(manifest.get("version") == "0.1.0", "wrong package version")
+    ensure(isinstance(manifest.get("version"), str) and re.fullmatch(r"[0-9]+\.[0-9]+\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?", manifest["version"]), "invalid package version")
     ensure(manifest.get("license") == "MIT", "wrong license metadata")
     ui = manifest["extensions"]["com.openai"]["interface"]
     ensure("Unofficial" in manifest.get("description", ""), "missing unofficial attribution")
     ensure(len(ui["shortDescription"]) <= 30, "shortDescription over 30 characters")
     ensure(ui.get("developerName") == "lirtual", "wrong developer")
     ensure(isinstance(ui.get("capabilities"), list), "invalid capabilities")
+    for key in ("logo", "composerIcon"):
+        ref = ui.get(key)
+        if ref:
+            ensure(isinstance(ref, str) and not ref.startswith("/"), f"invalid {key} path")
+            asset = (ROOT / ref).resolve()
+            ensure(asset.is_relative_to(ROOT) and asset.is_file(), f"missing {key} asset: {ref}")
     ensure((ROOT / "LICENSE").is_file(), "missing LICENSE")
     upstream_note = (ROOT / "UPSTREAM.md").read_text(encoding="utf-8")
     ensure(PIN in upstream_note and UPSTREAM_VERSION in upstream_note, "upstream provenance missing")
@@ -80,7 +86,7 @@ def inspect(upstream=None):
     ensure(support_count == 25, f"expected 25 support files, got {support_count}")
 
     for p in [ROOT / "plugin.json", ROOT / "LICENSE", ROOT / "UPSTREAM.md",
-              *(ROOT / "skills").rglob("*")]:
+              *(ROOT / "assets").rglob("*"), *(ROOT / "skills").rglob("*")]:
         ensure(not p.is_symlink(), f"symlink is not permitted: {p}")
 
     if upstream:

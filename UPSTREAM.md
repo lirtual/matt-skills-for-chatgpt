@@ -50,3 +50,16 @@ The `wizard/template.sh` helper additionally rejects final-path symlinks and ens
 - Original source: <https://github.com/badass-courses/ai-hero/blob/main/apps/ai-hero/public/favicon.svg>.
 - Source blob: `f557fb50fcd42de9414ddfa234aa85bc5d0ca9d2`.
 - Included unchanged for the user's private, **unofficial** ChatGPT adaptation. This is the AI Hero brand mark, not an officially published icon for the upstream `mattpocock/skills` plugin. No endorsement, affiliation or trademark license is implied.
+
+## ChatGPT runtime compatibility follow-up (2026-10-22)
+
+The installed private personal plugin is v0.1.2; earlier candidate and pre-install statements above are historical. This follow-up implements the agreed R1-Q1–R1-Q9 compatibility decisions, preserving the 27 upstream Skills and their original names.
+
+Additional intentional adaptations to be recognized during the pinned upstream source comparison:
+
+- `skills/ask-matt/SKILL.md`: ChatGPT session continuity and real Skill invocation rather than literal Claude slash commands.
+- `skills/handoff/SKILL.md`: choose handoff delivery based on actual filesystem/session access.
+- `skills/setup-matt-pocock-skills/SKILL.md`: use the applicable project instruction file and authorized existing GitHub tools.
+- `skills/setup-matt-pocock-skills/issue-tracker-github.md`: treat gh CLI commands as fallbacks to connected GitHub operations.
+
+The existing adapted `skills/implement-spec/SKILL.md`, `skills/code-review/SKILL.md` and `skills/wizard/SKILL.md` now clarify serial completion, review independence and explicit wizard generation. Packaging uses the current manifest version and contains the manifest-referenced logo assets. Installed-plugin end-to-end acceptance remains a separate gate.

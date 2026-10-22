@@ -5,7 +5,7 @@ description: "Review the changes since a fixed point (commit, branch, tag, or me
 
 ## ChatGPT execution note
 
-Before launching subagents, check whether independent review contexts are actually available. If not, do not claim that two parallel subagent reviews happened. A clearly labelled single-context standards/spec review may be offered as a lesser alternative, but must not claim to meet the independent-agent requirement.
+Before launching subagents, check whether two genuinely independent review contexts are available. If not, perform the Standards and Spec axes in this context as a clearly labelled **single-context two-axis review**; never claim two independent agents or treat the substitute as satisfying an explicit independent-review gate. For an existing PR, use the available base branch or merge-base as the fixed point before asking the user for one. Preserve a concrete diff and distinct evidence for each axis.
 
 Two-axis review of the diff between `HEAD` and a fixed point the user supplies:
 

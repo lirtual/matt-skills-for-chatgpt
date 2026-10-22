@@ -17,7 +17,7 @@ class RuntimeGuidanceTests(unittest.TestCase):
             with self.subTest(skill=name):
                 text=(SKILLS / name / "SKILL.md").read_text(encoding="utf-8")
                 self.assertIn("## ChatGPT execution note", text)
-                self.assertIn("not claim", text)
+                self.assertTrue(any(phrase in text.lower() for phrase in ("not claim", "never claim")), name)
 
 if __name__ == "__main__":
     unittest.main()

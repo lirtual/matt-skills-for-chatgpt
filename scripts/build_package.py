@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build a small reproducible Skills-only Agent Plugin archive."""
 import argparse
+import json
 from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
@@ -9,12 +10,14 @@ from validate_package import ROOT, inspect
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--output", type=Path, default=ROOT / "dist/matt-skills-for-chatgpt-0.1.0.zip")
+    p.add_argument("--output", type=Path)
     args = p.parse_args()
     inspect()
-    output = args.output.resolve()
+    manifest = json.loads((ROOT / "plugin.json").read_text(encoding="utf-8"))
+    output = (args.output or ROOT / f"dist/{manifest['name']}-{manifest['version']}.zip").resolve()
     files = [ROOT / "plugin.json", ROOT / "LICENSE", ROOT / "UPSTREAM.md"]
     files += sorted(p for p in (ROOT / "skills").rglob("*") if p.is_file())
+    files += sorted(p for p in (ROOT / "assets").rglob("*") if p.is_file())
     output.parent.mkdir(parents=True, exist_ok=True)
     if output in files:
         raise ValueError("output would overwrite a plugin source file")

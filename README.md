@@ -3,8 +3,7 @@
 Unofficial, independently maintained ChatGPT adaptation of [Matt Pocock's skills](https://github.com/mattpocock/skills).
 Not affiliated with or endorsed by Matt Pocock.
 
-**Status:** packaged `0.1.0` candidate for engineering review (**not published, installed or user-accepted**).
-The existing Matt Skills Curated plugin remains installed until explicit approval, full validation and successful replacement checks.
+**Status (2026-10-22):** `0.1.2` is installed as a personal/private ChatGPT plugin, with all 27 Skills discoverable. Installation and discovery do **not** establish end-to-end acceptance. Repository source is being improved for reproducible packaging and real ChatGPT execution paths; updating source does not update the installed plugin. Releasing a new version or uninstalling Curated requires separate approval.
 
 ## Contents
 
@@ -33,7 +32,7 @@ For a source-level comparison, clone the upstream repository as a sibling direct
 python3 scripts/validate_package.py --upstream ../skills-upstream
 ```
 
-The built plugin ZIP is placed in `dist/`, which is intentionally excluded from Git. Use the reviewed archive only after the explicitly approved release ticket.
+The built plugin ZIP is placed in `dist/`, which is intentionally excluded from Git. Its filename follows the current `plugin.json` version, and it includes the manifest-referenced logo assets. Ordinary validation/build requires no adjacent upstream clone; the optional `--upstream` content comparison requires the pinned upstream source. Only publish a reviewed archive after explicit approval.
 
 ## Boundaries
 

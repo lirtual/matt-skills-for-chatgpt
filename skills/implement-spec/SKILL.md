@@ -6,7 +6,9 @@ disable-model-invocation: true
 
 ## ChatGPT execution note
 
-Before modifying branches or claiming progress, verify that isolated worktrees and independent implementer/merger subagents are actually available. If any essential capability is absent, identify the blocking prerequisite and do not claim the multiagent execution completed. Do not silently simulate parallel work.
+This Skill's goal is to finish the existing spec, not to require a parallel-agent platform. First inspect the current spec, tickets, blockers, existing PRs, branches and actual verification evidence; reuse completed work instead of restarting or creating duplicate tickets. Resolve the issue tracker from project conventions and available authorized GitHub tools; do not require setup when it is already configured.
+
+Verify whether isolated worktrees and genuinely independent implementer/merger subagents are available. Use the original parallel-agent steps below only when they are. Otherwise use the **Serial fallback in ChatGPT** below with existing authorized tools. Never claim agents, parallelism or tests that did not occur. Lack of parallel capacity is not a blocker when the same work can be executed serially.
 
 You have been provided a spec. This spec should have tickets associated with it, describing how to implement the spec.
 
@@ -42,3 +44,13 @@ Communication to and from subagents should be sparse. Communicate primarily thro
 8. If a draft PR exists, mark it ready for review. Otherwise, resolve each ticket the way the issue tracker closes work, and report the integration branch.
 
 9. Clean up all **implementer subagent** worktrees.
+
+## Serial fallback in ChatGPT
+
+1. Read the existing Spec, Tickets, blockers, PRs, commits and tests. Identify only outstanding requirements, and preserve still-valid completed work; avoid duplicate Tickets or rerunning unchanged tests without reason.
+2. Reuse an existing authorized integration branch, creating one only if necessary. Work the dependency frontier one ready Ticket at a time on that branch, using the available `tdd` Skill when possible, with affected tests after each change.
+3. Integrate directly on the branch. Update or close Tickets only when actual results support completion and the user's authorization covers that tracker action.
+4. Test the complete affected flow at the agreed seam and run one overall Standards/Spec review. Without independent review contexts, label it **single-context two-axis review**. Any explicit independent-review gate remains unfulfilled.
+5. Report actual branch/PR, tests, completed Tickets, and remaining blockers. Never claim implementer/merger subagents or isolated worktrees were used in this fallback, and do not publish or merge without authorization.
+
+Stop only when a necessary capability or permission is actually unavailable and no supported serial route can satisfy the outcome.
