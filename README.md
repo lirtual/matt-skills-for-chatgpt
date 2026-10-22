@@ -3,13 +3,12 @@
 Unofficial, independently maintained ChatGPT adaptation of [Matt Pocock's skills](https://github.com/mattpocock/skills).
 Not affiliated with or endorsed by Matt Pocock.
 
-**Status:** packaged `0.1.0` candidate for engineering review (**not published, installed or user-accepted**).
-The existing Matt Skills Curated plugin remains installed until explicit approval, full validation and successful replacement checks.
+**Status (2026-10-22):** The last verified installed personal/private ChatGPT plugin is `0.1.2`, with 27 Skills discoverable. This source tree prepares `0.1.3`; merging source does not update the installed plugin. Installation and discovery do **not** establish end-to-end acceptance. Releasing a new version or uninstalling Curated are separate operations.
 
 ## Contents
 
 - 27 official Skills from the pinned upstream plugin manifest (20 engineering and 7 productivity).
-- All 27 `agents/openai.yaml` policies and all 25 sibling references/templates/scripts, copied unmodified.
+- All 27 `agents/openai.yaml` policies and 25 sibling references/templates/scripts, retaining the documented `wizard/template.sh` safety hardening.
 - Preserved invocation semantics: 16 user-only, 11 eligible for model invocation.
 - No new MCP server, Worker, database, command runner, CI workflow or dedicated UI.
 
@@ -33,7 +32,7 @@ For a source-level comparison, clone the upstream repository as a sibling direct
 python3 scripts/validate_package.py --upstream ../skills-upstream
 ```
 
-The built plugin ZIP is placed in `dist/`, which is intentionally excluded from Git. Use the reviewed archive only after the explicitly approved release ticket.
+The built plugin ZIP is placed in `dist/`, which is intentionally excluded from Git. Its filename follows the current `plugin.json` version, and it includes the manifest-referenced logo assets. Ordinary validation/build requires no adjacent upstream clone; the optional `--upstream` content comparison requires the pinned upstream source. Only publish a reviewed archive after explicit approval.
 
 ## Boundaries
 

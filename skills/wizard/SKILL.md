@@ -5,7 +5,7 @@ description: Generate an interactive bash wizard that walks a human through step
 
 ## ChatGPT execution note
 
-Generating a local setup wizard is not executing it. Avoid collecting or echoing credentials in chat, source, command logs, or plugin files. Use the template hidden terminal input on the authorized user device; if there is no safe local execution environment, do not claim the setup or secret write completed.
+For ordinary setup help, first complete steps possible through current authorized tools, then guide the user through genuinely manual steps. When the user explicitly invokes `wizard` or requests an interactive wizard, keep this Skill's core output: generate the Bash script using its template, and statically verify it where possible. Generating a local setup wizard is not executing it. Never collect or echo credentials in chat, source, or logs; use hidden terminal input on an authorized user device, and do not claim any secret write or setup completed without an actual execution result.
 
 # Wizard
 

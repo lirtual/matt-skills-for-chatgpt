@@ -4,6 +4,10 @@ description: "Configure this repo for the engineering skills: set up its issue t
 disable-model-invocation: true
 ---
 
+## ChatGPT execution note
+
+Inspect and reuse the project's existing issue tracker, labels and instruction conventions before requesting setup. Prefer available authorized GitHub connector operations to an absent `gh` CLI. In ChatGPT, prefer an existing `AGENTS.md` when it is the applicable project instruction source, but respect established project choices and avoid duplicate rules. Do not assume any repository file is automatically loaded in every chat.
+
 # Setup Matt Pocock's Skills
 
 Scaffold the per-repo configuration that the engineering skills assume:
@@ -73,11 +77,9 @@ Let them edit before writing.
 
 **Pick the file to edit:**
 
-- If `CLAUDE.md` exists, edit it.
-- Else if `AGENTS.md` exists, edit it.
-- If neither exists, ask the user which one to create; don't pick for them.
-
-Never create `AGENTS.md` when `CLAUDE.md` already exists (or vice versa); always edit the one that's already there.
+- Choose the project instruction file actually used in the current agent environment. In ChatGPT, prefer an existing `AGENTS.md` when applicable; use `CLAUDE.md` if it is the project's established source.
+- If both exist, inspect their distinct roles and modify only the applicable one. Do not duplicate the same rules in both.
+- If neither exists, ask which file to create only when the project truly needs initialization; do not create one by default.
 
 If an `## Agent skills` block already exists in the chosen file, update its contents in-place rather than appending a duplicate. Don't overwrite user edits to the surrounding sections.
 

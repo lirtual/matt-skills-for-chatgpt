@@ -4,6 +4,10 @@ description: Ask which skill or flow fits your situation. A router over the skil
 disable-model-invocation: true
 ---
 
+## ChatGPT execution note
+
+The slash-prefixed Skill names below are workflow references, not guaranteed ChatGPT slash commands. Read named sibling Skills through available skill-reading tools while honoring user-only invocation. Do not assume `/clear` or `/compact` exists: continue in the current context where practical and use accessible handoff materials only when truly needed. Inspect existing Specs, Tickets, PRs and test evidence before recommending a new workflow stage, so completed work is not repeated.
+
 # Ask Matt
 
 You don't remember every skill, so ask.

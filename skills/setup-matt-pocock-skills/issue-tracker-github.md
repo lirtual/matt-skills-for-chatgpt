@@ -1,6 +1,6 @@
 # Issue tracker: GitHub
 
-Issues and specs for this repo live as GitHub issues. Use the `gh` CLI for all operations.
+Issues and specs for this repo live as GitHub issues. In ChatGPT, prefer available authorized GitHub connector operations (including create_issue, read/update issue, and PR tools). The `gh` commands below are examples for an available authorized CLI, not prerequisites. Do not infer absent permissions from a tool name or claim a write succeeded without a real response.
 
 ## Conventions
 
