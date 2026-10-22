@@ -3,12 +3,12 @@
 Unofficial, independently maintained ChatGPT adaptation of [Matt Pocock's skills](https://github.com/mattpocock/skills).
 Not affiliated with or endorsed by Matt Pocock.
 
-**Status (2026-10-22):** `0.1.2` is installed as a personal/private ChatGPT plugin, with all 27 Skills discoverable. Installation and discovery do **not** establish end-to-end acceptance. Repository source is being improved for reproducible packaging and real ChatGPT execution paths; updating source does not update the installed plugin. Releasing a new version or uninstalling Curated requires separate approval.
+**Status (2026-10-22):** The last verified installed personal/private ChatGPT plugin is `0.1.2`, with 27 Skills discoverable. This source tree prepares `0.1.3`; merging source does not update the installed plugin. Installation and discovery do **not** establish end-to-end acceptance. Releasing a new version or uninstalling Curated are separate operations.
 
 ## Contents
 
 - 27 official Skills from the pinned upstream plugin manifest (20 engineering and 7 productivity).
-- All 27 `agents/openai.yaml` policies and all 25 sibling references/templates/scripts, copied unmodified.
+- All 27 `agents/openai.yaml` policies and 25 sibling references/templates/scripts, retaining the documented `wizard/template.sh` safety hardening.
 - Preserved invocation semantics: 16 user-only, 11 eligible for model invocation.
 - No new MCP server, Worker, database, command runner, CI workflow or dedicated UI.
 
