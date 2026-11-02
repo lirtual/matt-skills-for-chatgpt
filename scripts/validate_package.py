@@ -23,6 +23,9 @@ def ensure(ok, message):
 
 
 def inspect(upstream=None):
+    for package_root in ("skills", "assets"):
+        ensure(not (ROOT / package_root).is_symlink(),
+               f"symlink is not permitted: {package_root}/")
     manifest = json.loads((ROOT / "plugin.json").read_text(encoding="utf-8"))
     ensure(manifest.get("$schema") == SCHEMA, "wrong plugin schema")
     ensure(manifest.get("name") == "matt-skills-for-chatgpt", "wrong package name")

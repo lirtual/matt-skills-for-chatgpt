@@ -1,4 +1,5 @@
 import json
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -42,6 +43,29 @@ class DistributionTests(unittest.TestCase):
                 ui = manifest["extensions"]["com.openai"]["interface"]
                 for key in ("logo", "composerIcon"):
                     self.assertIn(ui[key].removeprefix("./"), files)
+
+    def test_validator_rejects_symlinked_package_root_directories(self):
+        # Public validation CLI must reject every symlink in the distribution,
+        # including the skills/assets roots (not just their descendants).
+        for linked_root in ("skills", "assets"):
+            with self.subTest(root=linked_root), tempfile.TemporaryDirectory() as t:
+                candidate = Path(t)
+                for file in ("plugin.json", "LICENSE", "UPSTREAM.md"):
+                    shutil.copy2(ROOT / file, candidate / file)
+                shutil.copytree(ROOT / "scripts", candidate / "scripts")
+                for directory in ("skills", "assets"):
+                    target = f"{directory}-original" if directory == linked_root else directory
+                    shutil.copytree(ROOT / directory, candidate / target)
+                (candidate / linked_root).symlink_to(
+                    f"{linked_root}-original", target_is_directory=True
+                )
+
+                p = subprocess.run(
+                    [sys.executable, "scripts/validate_package.py"],
+                    cwd=candidate, capture_output=True, text=True,
+                )
+                self.assertNotEqual(p.returncode, 0, f"accepted linked {linked_root}")
+                self.assertIn("symlink", p.stdout + p.stderr)
 
 if __name__ == "__main__":
     unittest.main()
