@@ -14,6 +14,8 @@ If the user passes a ticket reference, fetch it from the issue tracker and state
 
 Call the Skill tool with "tdd" where possible, at pre-agreed seams.
 
+Reuse the task's existing risk assessment; if none exists, make a lightweight one before implementation. Carry its risk-relevant observable outcomes and evidence into the work. If work reveals a new failure mode, side effect or evidence limitation, reassess the affected acceptance criteria before proceeding. For risk-bearing changes, verify the actual terminal outcome and relevant side effects; treat an unconfirmed external result as unknown and reconcile it before retrying or continuing. Do not add instrumentation, test layers or process solely for uniformity.
+
 Run typechecking regularly, single test files regularly, and the full test suite once at the end.
 
 Once done, call the Skill tool with "code-review" to review the work.

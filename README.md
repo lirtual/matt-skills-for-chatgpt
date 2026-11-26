@@ -3,7 +3,7 @@
 Unofficial, independently maintained ChatGPT adaptation of [Matt Pocock's skills](https://github.com/mattpocock/skills).
 Not affiliated with or endorsed by Matt Pocock.
 
-**Release and acceptance:** The source version is in [plugin.json](plugin.json). The existing personal/private plugin was verified installed at v0.1.3 on 2026-10-22, including fresh-session access to the serial fallback. v0.1.4 adds lifecycle-aware specification, review and completion guidance (see [UPSTREAM.md](UPSTREAM.md)); source validation is not proof of installation or future execution adherence. The original Curated plugin is not automatically removed; see [SPEC #2](https://github.com/lirtual/matt-skills-for-chatgpt/issues/2) for remaining acceptance boundaries.
+**Release and acceptance:** The source package version is in [plugin.json](plugin.json). Source v0.1.5 adds risk-proportional diagnosability guidance across the existing specification, ticketing, implementation, TDD, review and retrospective Skills (see [UPSTREAM.md](UPSTREAM.md)). The existing personal/private plugin is a separate distribution artifact: verify its release metadata and changed files after any explicitly authorized update. Source validation and archive creation do not prove installation or host runtime behavior. The original Curated plugin is not automatically removed; see [SPEC #2](https://github.com/lirtual/matt-skills-for-chatgpt/issues/2) for remaining acceptance boundaries.
 
 ## Contents
 

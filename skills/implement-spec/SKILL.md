@@ -10,6 +10,8 @@ This Skill's goal is to finish the existing spec, not to require a parallel-agen
 
 Verify whether isolated worktrees and genuinely independent implementer/merger subagents are available. Use the original parallel-agent steps below only when they are. Otherwise use the **Serial fallback in ChatGPT** below with existing authorized tools. Never claim agents, parallelism or tests that did not occur. Lack of parallel capacity is not a blocker when the same work can be executed serially.
 
+**Outcome evidence:** Carry each ticket's risk-relevant expected outcomes and evidence through implementation and verification. Reassess only the affected criteria when new failure modes, side effects, state transitions or evidence limitations appear. Preserve partial completion and unknown explicitly; reconcile actual external state before retry or continuation. If evidence is unavailable, first seek an existing alternative source; if none establishes the result, record what remains unknown, its impact and the next safe action. Stop only the affected high-risk operation or acceptance decision when the unknown could invalidate safety or correctness; otherwise retain bounded, explicit residual uncertainty. Keep low-risk local work on the existing lightweight path.
+
 You have been provided a spec. This spec should have tickets associated with it, describing how to implement the spec.
 
 The issue tracker should have been provided to you. If not, tell the user to run `/setup-matt-pocock-skills`.
