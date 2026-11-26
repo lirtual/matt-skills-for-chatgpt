@@ -6,7 +6,7 @@
 - Source license: MIT; copied in [LICENSE](LICENSE).
 - Publication: **unofficial ChatGPT adaptation**, not endorsed by Matt Pocock.
 - Initial target: 27 official skills (20 Engineering, 7 Productivity), corresponding invocation metadata and required adjacent assets.
-- Status: **candidate package prepared; not yet installed or released as a ChatGPT plugin**.
+- Status: GitHub is the authoritative source. A personal/private ChatGPT plugin distribution exists; its current release and runtime behavior must be read back separately and are not inferred from this source tree or a built archive.
 
 ## Update process (manual)
 
@@ -53,7 +53,7 @@ The `wizard/template.sh` helper additionally rejects final-path symlinks and ens
 
 ## ChatGPT runtime compatibility follow-up (2026-10-22)
 
-The installed private personal plugin is v0.1.2; earlier candidate and pre-install statements above are historical. This follow-up implements the agreed R1-Q1–R1-Q9 compatibility decisions, preserving the 27 upstream Skills and their original names.
+At the time of this follow-up, the installed private personal plugin was v0.1.2; this is a historical release record, not the current version. This follow-up implements the agreed R1-Q1–R1-Q9 compatibility decisions, preserving the 27 upstream Skills and their original names.
 
 Additional intentional adaptations to be recognized during the pinned upstream source comparison:
 
@@ -73,3 +73,17 @@ Owner-approved local improvement after recurring retirement omissions:
 - `skills/implement-spec/SKILL.md`: distinguish review-ready source from completed lifecycle acceptance, including automatic closing links.
 
 No new Skill, invocation policy, service or dependency; upstream pin and original attribution unchanged. Ordinary local changes retain the existing review scope. Packaging verification and case-based review establish source consistency, not future Agent adherence.
+
+## Cross-project diagnosability follow-up (source v0.1.5, 2026-11-26)
+
+Spec #77 extends the existing lifecycle Skills so risk-relevant outcome evidence is carried through the current workflow without introducing a second process:
+
+- `skills/to-spec/SKILL.md`: add a lightweight task-risk assessment and task-specific observable outcome evidence only when warranted; keep the existing Spec sections and avoid a universal diagnostic template.
+- `skills/to-tickets/SKILL.md`: carry only slice-owned outcome/evidence criteria into vertical tickets and retain genuine blocking prerequisites.
+- `skills/implement/SKILL.md`: preserve and reassess relevant acceptance evidence when implementation reveals new failure modes, side effects or evidence gaps.
+- `skills/implement-spec/SKILL.md`: carry expected outcomes through the task graph and keep partial/unknown results explicit, reconciling external state before retry or continuation.
+- `skills/tdd/SKILL.md`: reuse agreed public seams and verify actual outcomes, side effects and representative failure/recovery behavior where risk warrants it.
+- `skills/code-review/SKILL.md`: use the existing Standards/Spec axes to assess actual outcomes, partial/unknown state, recovery evidence and diagnostic proportionality.
+- `skills/retro/SKILL.md`: use concrete execution-to-delivery evidence to separate one-off project defects from recurring workflow or shared-dependency gaps.
+
+This is a ChatGPT-specific workflow adaptation, not a universal logging contract. It adds no Skill, event schema, telemetry provider, dashboard, dependency, scheduled audit, mandatory reviewer or global instruction. The upstream pin, 27-Skill inventory, invocation policies, and project-local diagnostic implementations remain unchanged. The source package version is 0.1.5; plugin distribution remains a separately authorized and verified step.
