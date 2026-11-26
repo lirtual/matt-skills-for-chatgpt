@@ -63,3 +63,13 @@ Additional intentional adaptations to be recognized during the pinned upstream s
 - `skills/setup-matt-pocock-skills/issue-tracker-github.md`: treat gh CLI commands as fallbacks to connected GitHub operations.
 
 The existing adapted `skills/implement-spec/SKILL.md`, `skills/code-review/SKILL.md` and `skills/wizard/SKILL.md` now clarify serial completion, review independence and explicit wizard generation. Packaging uses the current manifest version and contains the manifest-referenced logo assets. Installed-plugin end-to-end acceptance remains a separate gate.
+
+## Lifecycle completion follow-up (v0.1.4, 2026-11-26)
+
+Owner-approved local improvement after recurring retirement omissions:
+
+- `skills/to-spec/SKILL.md`: specify the final supported contract and observable retirement/temporary-mechanism exit criteria.
+- `skills/code-review/SKILL.md`: conditionally trace affected dependencies beyond the diff in both existing review axes.
+- `skills/implement-spec/SKILL.md`: distinguish review-ready source from completed lifecycle acceptance, including automatic closing links.
+
+No new Skill, invocation policy, service or dependency; upstream pin and original attribution unchanged. Ordinary local changes retain the existing review scope. Packaging verification and case-based review establish source consistency, not future Agent adherence.

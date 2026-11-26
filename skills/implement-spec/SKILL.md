@@ -28,7 +28,7 @@ Communication to and from subagents should be sparse. Communicate primarily thro
 
 2. (optional) Use an **exploration subagent** to conduct any exploration required by the tickets - relevant codebase files or external documentation. Ensure the exploration subagent can save files - it should save its markdown notes in a directory outside the repo, accessible by all future subagents. This lets **implementer subagents** focus on implementation rather than exploration.
 
-3. Create the integration branch. If the issue tracker closes work through PRs, or the user asks for one, open a draft PR after the first merge in step 5 (a branch with no commits ahead of main can't open one), marked as closing the spec and tickets.
+3. Create the integration branch. If the issue tracker closes work through PRs, or the user asks for one, open a draft PR after the first merge in step 5 (a branch with no commits ahead of main can't open one), referencing the Spec and Tickets. Use automatic closing links only when merging will satisfy every applicable completion criterion.
 
 4. Use **implementer subagents** to implement each ticket, each in its own worktree on its own branch. Each implementer subagent:
    - confirms its worktree is based on the integration branch before starting, and resets onto it if not;
@@ -39,9 +39,9 @@ Communication to and from subagents should be sparse. Communicate primarily thro
 
 6. If this changes the **frontier** of available tickets, kick off more **implementer subagents** to work on the new tickets. This allows for maximum concurrency.
 
-7. Once all tickets are complete, call the Skill tool with `code-review` on the integration branch. Fix all issues raised by the code review in a single **implementer subagent**.
+7. Once all implementation tickets are ready, call the Skill tool with `code-review` on the integration branch. Fix all in-scope issues raised by the code review in a single **implementer subagent**.
 
-8. If a draft PR exists, mark it ready for review. Otherwise, resolve each ticket the way the issue tracker closes work, and report the integration branch.
+8. Mark a draft PR ready when its source gates are satisfied. Resolve tickets and the Spec only when their applicable completion criteria have evidence; leave the relevant record open while required cutover, verification or retirement remains outstanding. Before merge, verify automatic closing links against the remaining criteria. Report the integration branch and remaining criteria.
 
 9. Clean up all **implementer subagent** worktrees.
 
@@ -49,8 +49,8 @@ Communication to and from subagents should be sparse. Communicate primarily thro
 
 1. Read the existing Spec, Tickets, blockers, PRs, commits and tests. Identify only outstanding requirements, and preserve still-valid completed work; avoid duplicate Tickets or rerunning unchanged tests without reason.
 2. Reuse an existing authorized integration branch, creating one only if necessary. Work the dependency frontier one ready Ticket at a time on that branch, using the available `tdd` Skill when possible, with affected tests after each change.
-3. Integrate directly on the branch. Update or close Tickets only when actual results support completion and the user's authorization covers that tracker action.
-4. Test the complete affected flow at the agreed seam and run one overall Standards/Spec review. Without independent review contexts, label it **single-context two-axis review**. Any explicit independent-review gate remains unfulfilled.
+3. Integrate directly on the branch. Update Tickets with evidence; close only those whose own completion criteria are satisfied and whose tracker action is authorized.
+4. Test the complete affected flow at the agreed seam and run one overall Standards/Spec review. Apply step 8 before resolving the Spec, and use its completion rule for any automatic closing links. Without independent review contexts, label it **single-context two-axis review**. Any explicit independent-review gate remains unfulfilled.
 5. Report actual branch/PR, tests, completed Tickets, and remaining blockers. Never claim implementer/merger subagents or isolated worktrees were used in this fallback, and do not publish or merge without authorization.
 
 Stop only when a necessary capability or permission is actually unavailable and no supported serial route can satisfy the outcome.

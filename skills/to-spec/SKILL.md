@@ -12,6 +12,8 @@ The issue tracker and triage label vocabulary should have been provided to you. 
 
 1. Explore the repo to understand the current state of the codebase, if you haven't already. Use the project's domain glossary vocabulary throughout the spec, and respect any ADRs in the area you're touching.
 
+   **Lifecycle:** For migrations, replacements, retirements, shared-contract changes or temporary mechanisms, trace the affected dependencies and identify the final supported contract. Account for existing and temporary implementations, entry points, configuration, dependencies, release/recovery paths, checks and docs. Record what stays, changes or exits, the evidence that makes retirement safe, and any temporary mechanism's exit condition. Preserve necessary historical reads, audit evidence and effective safety boundaries; retirement does not imply permission to delete data or change production.
+
 2. Sketch out the seams at which you're going to test the feature. Existing seams should be preferred to new ones. Use the highest seam possible. If new seams are needed, propose them at the highest point you can. The fewer seams across the codebase, the better - the ideal number is one.
 
 Check with the user that these seams match their expectations.
@@ -62,6 +64,7 @@ A list of testing decisions that were made. Include:
 
 - A description of what makes a good test (only test external behavior, not implementation details)
 - Which modules will be tested
+- For applicable lifecycle changes, observable acceptance evidence for both the new behavior and required retirement (including affected deployment/runtime state where relevant). If exit depends on a later cutover or authorization, keep that criterion outstanding in the same Spec. Reuse existing checks.
 - Prior art for the tests (i.e. similar types of tests in the codebase)
 
 ## Out of Scope
