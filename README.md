@@ -3,7 +3,7 @@
 Unofficial, independently maintained ChatGPT adaptation of [Matt Pocock's skills](https://github.com/mattpocock/skills).
 Not affiliated with or endorsed by Matt Pocock.
 
-**Status (2026-10-22):** Version `0.1.3` is installed as the existing personal/private ChatGPT plugin; all 27 Skills and invocation policies are preserved. A fresh ChatGPT session has confirmed that `implement-spec` exposes `Serial fallback in ChatGPT`. This verifies the new instructions are readable, **not** a complete implementation/TDD/review end-to-end run. The original Curated plugin is not automatically removed; see [SPEC #2](https://github.com/lirtual/matt-skills-for-chatgpt/issues/2) for remaining acceptance boundaries.
+**Release and acceptance:** The source version is in [plugin.json](plugin.json). The existing personal/private plugin was verified installed at v0.1.3 on 2026-10-22, including fresh-session access to the serial fallback. v0.1.4 adds lifecycle-aware specification, review and completion guidance (see [UPSTREAM.md](UPSTREAM.md)); source validation is not proof of installation or future execution adherence. The original Curated plugin is not automatically removed; see [SPEC #2](https://github.com/lirtual/matt-skills-for-chatgpt/issues/2) for remaining acceptance boundaries.
 
 ## Contents
 

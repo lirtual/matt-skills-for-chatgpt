@@ -7,7 +7,7 @@ description: "Review the changes since a fixed point (commit, branch, tag, or me
 
 Before launching subagents, check whether two genuinely independent review contexts are available. If not, perform the Standards and Spec axes in this context as a clearly labelled **single-context two-axis review**; never claim two independent agents or treat the substitute as satisfying an explicit independent-review gate. For an existing PR, use the available base branch or merge-base as the fixed point before asking the user for one. Preserve a concrete diff and distinct evidence for each axis.
 
-Two-axis review of the diff between `HEAD` and a fixed point the user supplies:
+Two-axis review starting from the diff between `HEAD` and a fixed point the user supplies:
 
 - **Standards**: does the code conform to this repo's documented coding standards?
 - **Spec**: does the code faithfully implement the originating issue / spec?
@@ -59,7 +59,16 @@ Each smell reads *what it is* → *how to fix*; match it against the diff:
 - **Middle Man**: a class or function that mostly just delegates onward. → cut it, call the real target direct.
 - **Refused Bequest**: a subclass or implementer that ignores or overrides most of what it inherits. → drop the inheritance, use composition.
 
-### 4. Spawn both sub-agents in parallel
+### 4. Review scope and dispatch
+
+**Lifecycle scope:** If the change migrates, replaces, retires or alters a shared contract, or introduces temporary execution/verification mechanisms, both review axes must trace the directly affected dependencies beyond the diff, including unchanged and cross-repository files where relevant. Use current contracts and observed usage to account for implementations, entry points, configuration, dependencies, release/recovery paths, checks and docs. Stop when the evidence resolves the affected scope; ordinary local changes use the usual diff scope.
+
+- Standards: identify obsolete or duplicate maintenance surfaces and gates, including those omitted from the Spec; distinguish confirmed unnecessary mechanisms from required history, recovery or safety checks.
+- Spec: check that required final behavior and retirement have observable evidence, including actual deployed state where applicable. Report missing exit criteria, incomplete removal or unresolved evidence rather than equating code/CI success with lifecycle completion. A missing Spec or unavailable evidence limits the conclusion, not the Standards review.
+
+Include this scope and the relevant contract/evidence references in both prompts when triggered; apply it equally in the serial fallback. Report findings against exact paths/receipts and the applicable requirement or evidence, without inventing requirements, extending write authorization or requiring a new permanent gate. Keep out-of-scope findings separate.
+
+**Dispatch both sub-agents in parallel**
 
 Issue both sub-agent calls together, in the foreground, and aggregate the reports they return.
 
@@ -73,7 +82,7 @@ Issue both sub-agent calls together, in the foreground, and aggregate the report
 
 - The diff command and commit list.
 - The path or fetched contents of the spec.
-- The brief: "Report: (a) requirements the spec asked for that are missing or partial; (b) behaviour in the diff that wasn't asked for (scope creep); (c) requirements that look implemented but where the implementation looks wrong. Quote the spec line for each finding. Under 400 words."
+- The brief: "Report: (a) requirements the spec asked for that are missing or partial; (b) behaviour in the diff that wasn't asked for (scope creep); (c) requirements that look implemented but where the implementation looks wrong. Quote the spec line for each finding, or identify a missing lifecycle criterion with supporting evidence. Under 400 words."
 
 If the spec is missing, skip the Spec sub-agent and note this in the final report.
 
